@@ -690,6 +690,50 @@ blockquote p:last-child { margin-bottom: 0; }
 .self-mark { display: grid; gap: .5rem; margin-top: .8rem; }
 .self-mark label { display: flex; gap: .6rem; align-items: flex-start; }
 
+.medicine-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .8rem;
+  margin: 1rem 0;
+}
+
+.medicine-grid section {
+  padding: 1rem;
+  background: #f2f6f8;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.medicine-grid h3 { margin-bottom: .45rem; }
+.medicine-grid p { margin: 0; }
+
+.criteria-hero { background: #102c3b; }
+.criteria-wrap { display: grid; gap: 2rem; }
+.criterion-focus { overflow: hidden; background: var(--white); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); }
+.criterion-heading { padding: clamp(1.4rem, 4vw, 2.5rem); color: white; background: var(--navy); }
+.criterion-heading span { color: #7de1d4; font-size: .78rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+.criterion-heading h2 { margin: .55rem 0 .35rem; color: white; }
+.criterion-heading p { margin: 0; color: #cbd6e5; }
+.criterion-objectives { padding: 1.5rem clamp(1.2rem, 4vw, 2.5rem) .5rem; }
+.criterion-objectives ol { display: grid; gap: .6rem; padding-left: 1.25rem; }
+.rubric-scroll { overflow-x: auto; padding: .5rem clamp(1.2rem, 4vw, 2.5rem); }
+.rubric-table { width: 100%; min-width: 700px; border-collapse: collapse; }
+.rubric-table th, .rubric-table td { padding: .85rem; border: 1px solid var(--line); vertical-align: top; text-align: left; }
+.rubric-table th { color: white; background: #173a4b; }
+.rubric-table td:first-child { font-weight: 900; white-space: nowrap; }
+.rubric-table .top-band { background: var(--teal-soft); }
+.criteria-advice { margin: 1.5rem clamp(1.2rem, 4vw, 2.5rem) 2rem; padding: 1.2rem; background: #fff5e5; border-left: 5px solid var(--yellow); border-radius: 10px; }
+.criteria-advice ul { display: grid; gap: .5rem; margin-bottom: 0; padding-left: 1.2rem; }
+.other-criteria { display: grid; gap: .8rem; }
+.criterion-card { overflow: hidden; background: var(--white); border: 1px solid var(--line); border-radius: 14px; }
+.criterion-card summary { display: flex; gap: 1rem; align-items: center; padding: 1rem 1.2rem; cursor: pointer; list-style: none; }
+.criterion-card summary::-webkit-details-marker { display: none; }
+.criterion-card summary > span { display: grid; place-items: center; flex: 0 0 46px; height: 46px; color: white; background: var(--teal); border-radius: 50%; font-weight: 900; }
+.criterion-card summary h3, .criterion-card summary p { margin: 0; }
+.criterion-card summary p { color: var(--muted); }
+.criterion-card > div { padding: 0 1.2rem 1.2rem 5.8rem; }
+.criterion-card > div p:last-child { margin-bottom: 0; }
+
 footer {
   display: flex;
   justify-content: space-between;
@@ -726,13 +770,14 @@ footer a { color: #7de1d4; }
   .hero-visual { display: none; }
   .exam-strip { grid-template-columns: 1fr; margin-top: -4rem; }
   .time-badge { width: 100px; height: 100px; }
-  .timeline, .priority-grid, .compare-two, .mode-picker, .word-pairs, .cer-grid { grid-template-columns: 1fr; }
+  .timeline, .priority-grid, .compare-two, .mode-picker, .word-pairs, .cer-grid, .medicine-grid { grid-template-columns: 1fr; }
   .topic-index { grid-template-columns: 1fr; }
   .definition-list div { grid-template-columns: 1fr; gap: .2rem; }
   .fact-row { grid-template-columns: 1fr; }
   .quiz-hero { align-items: flex-start; flex-direction: column; }
   .unit-card, .future-units { grid-template-columns: 1fr; }
   .unit-status { justify-items: start; }
+  .criterion-card > div { padding-left: 1.2rem; }
   footer { flex-direction: column; }
 }
 

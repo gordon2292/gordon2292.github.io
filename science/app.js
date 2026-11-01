@@ -21,6 +21,7 @@ const flashcards = [
   ['feedback', 'Endotherm', 'An animal that produces most of its heat through metabolism.'],
   ['feedback', 'Ectotherm', 'An animal whose temperature depends more on heat from the environment.'],
   ['feedback', 'Hypothalamus', 'The brain region that coordinates thermoregulation and helps control endocrine activity.'],
+  ['feedback', 'Platelet activation', 'A positive feedback process in which activated platelets release chemicals that recruit and activate more platelets.'],
   ['endocrine', 'Hormone', 'A chemical messenger released by a gland and carried in the blood.'],
   ['endocrine', 'Target cell', 'A cell with the receptor needed to respond to a particular hormone.'],
   ['endocrine', 'Insulin', 'A pancreatic hormone that lowers blood glucose.'],
@@ -67,7 +68,10 @@ const flashcards = [
   ['immunity', 'Antibiotic', 'A medicine used to treat bacterial infections, not viral infections.'],
   ['immunity', 'Antiviral', 'A medicine that reduces viral replication or interferes with a viral process.'],
   ['immunity', 'Vaccine', 'A preparation that exposes the immune system to antigens safely and promotes immune memory.'],
-  ['immunity', 'Antibiotic resistance', 'The ability of bacteria to survive an antibiotic that previously killed or stopped them.']
+  ['immunity', 'Antibiotic resistance', 'The ability of bacteria to survive an antibiotic that previously killed or stopped them.'],
+  ['immunity', 'Inflammation', 'A non-specific response that increases blood flow and vessel permeability near damaged or infected tissue.'],
+  ['immunity', 'Pus', 'Dead immune cells and microbes suspended in tissue fluid.'],
+  ['immunity', 'Fever', 'A controlled rise in body temperature that can slow some pathogens and increase immune activity.']
 ];
 
 let filteredCards = [...flashcards];
@@ -289,6 +293,41 @@ const autoQuestions = [
     options: ['Resistant bacteria survive and reproduce', 'Every bacterium decides to become resistant', 'Antibiotics change bacteria into viruses', 'Vaccines remove bacterial variation'],
     answer: 0,
     explain: 'Antibiotics create selection pressure. Resistant bacteria survive and pass resistance to their descendants.'
+  },
+  {
+    topic: 'Graph interpretation',
+    prompt: 'In the IV-glucose graph, blood plasma glucose is about 15 mmol dm⁻³ at 115 mmol dm⁻³ injected and about 52 at 145. What is a reasonable interpolated value at 135?',
+    options: ['About 10 mmol dm⁻³', 'About 20 mmol dm⁻³', 'About 40 mmol dm⁻³', 'About 90 mmol dm⁻³'],
+    answer: 2,
+    explain: 'The point at 135 lies between the values at 115 and 145, giving an approximate reading of 40 mmol dm⁻³.'
+  },
+  {
+    topic: 'Data analysis',
+    prompt: 'Which evidence best supports the claim that glucose regulation worked at lower IV glucose loads?',
+    options: ['Mortality reached 100%', 'Plasma glucose stayed near 10 mmol dm⁻³ at 60 and 85 mmol dm⁻³ injected', 'Urine glucose reached about 75 mmol dm⁻³', 'Plasma glucose reached about 52 mmol dm⁻³'],
+    answer: 1,
+    explain: 'A stable plasma concentration near the baseline supports the claim that negative feedback was maintaining balance.'
+  },
+  {
+    topic: 'Evaluation',
+    prompt: 'Why does the rat investigation not show that larger humans can tolerate high glucose concentrations?',
+    options: ['Humans do not regulate glucose', 'Body size alone does not determine tolerance, and rat data cannot be transferred directly to humans', 'All mammals have identical blood', 'Oral and IV glucose always have identical effects'],
+    answer: 1,
+    explain: 'The conclusion goes beyond the evidence. Species differences and feeding route must be considered, and the sample is also small.'
+  },
+  {
+    topic: 'Positive feedback',
+    prompt: 'Why is blood clotting described as positive feedback?',
+    options: ['Activated platelets recruit more platelets', 'Insulin lowers blood glucose', 'Sweating lowers temperature', 'The response always continues forever'],
+    answer: 0,
+    explain: 'Activated platelets release signals that activate more platelets until the damaged area is sealed.'
+  },
+  {
+    topic: 'Immune response',
+    prompt: 'What best explains redness and swelling around an infected cut?',
+    options: ['Inflammation increases blood flow and vessel permeability', 'Motor neurons convert bacteria into antibodies', 'Glucagon seals the wound', 'The skin becomes hypertonic'],
+    answer: 0,
+    explain: 'Inflammatory chemicals increase local blood flow and allow fluid and immune cells to enter the tissue.'
   }
 ];
 
@@ -316,6 +355,29 @@ const writtenQuestions = [
       values: ['Blood glucose / mmol L⁻¹', '7.8', '7.1', '6.5', '6.2']
     },
     guide: ['Makes a direct claim that the data support the statement', 'Quotes the starting value with its unit', 'Quotes the final value with its unit', 'States that blood glucose decreased over time', 'Links the decrease to glucose uptake by muscle cells', 'Explains that cells use glucose in respiration']
+  },
+  {
+    topic: 'Glucose data',
+    prompt: 'Analyse the IV-glucose data to make one claim that negative feedback is working at lower concentrations and one claim that it is overwhelmed at higher concentrations. [8]',
+    table: {
+      headings: ['Glucose injected / mmol dm⁻³', '60', '85', '95', '115', '145'],
+      rows: [
+        ['Plasma glucose / mmol dm⁻³', '10', '10', '12', '15', '52'],
+        ['Urine glucose / mmol dm⁻³', '0', '0', '5', '30', '75'],
+        ['Mortality / %', '0', '0', '0', '75', '100']
+      ]
+    },
+    guide: ['States that regulation is working at lower injected concentrations', 'Quotes the 10 mmol dm⁻³ plasma value at 60 or 85', 'Uses the zero urine glucose or mortality as further evidence', 'States that regulation is overwhelmed at higher concentrations', 'Quotes a higher plasma or urine value with its unit', 'Quotes the 75% or 100% mortality value', 'Explains that negative feedback has a limited capacity', 'Connects the evidence directly to both claims']
+  },
+  {
+    topic: 'Evaluation',
+    prompt: 'Evaluate the claim: “The rats could not tolerate high IV glucose, so larger humans can tolerate high glucose.” [6]',
+    guide: ['Identifies evidence supporting poor tolerance in the tested rats', 'Quotes the 75% or 100% mortality value', 'Identifies the small sample of four IV rats', 'Explains that results from rats cannot be transferred directly to humans', 'Explains that body size alone does not determine glucose tolerance', 'Reaches a judgment limited to the tested rats and conditions']
+  },
+  {
+    topic: 'Applied homeostasis',
+    prompt: 'A cut is red, swollen and contains pus, and body temperature is slightly raised. Explain how clotting and immune responses help restore homeostasis. [8]',
+    guide: ['States that the skin barrier was broken', 'Explains that platelet activation forms a plug by positive feedback', 'Links clotting to reduced blood loss or pathogen entry', 'Explains vasodilation or increased permeability during inflammation', 'Links redness or swelling to the inflammatory response', 'Explains phagocytosis of pathogens', 'Explains what pus contains', 'Links fever and later temperature regulation to restoration of balance']
   }
 ];
 
@@ -340,7 +402,7 @@ function shuffle(items) {
 }
 
 function startQuiz(mode) {
-  activeQuestions = mode === 'quick' ? shuffle(autoQuestions).slice(0, 8) : [...shuffle(autoQuestions).slice(0, 16), ...writtenQuestions];
+  activeQuestions = mode === 'quick' ? shuffle(autoQuestions).slice(0, 8) : [...shuffle(autoQuestions).slice(0, 16), ...shuffle(writtenQuestions).slice(0, 4)];
   currentQuestion = 0;
   responses = [];
   timeLeft = (mode === 'quick' ? 15 : 55) * 60;
@@ -373,7 +435,8 @@ function renderQuestion() {
   if (question.options) {
     questionCard.innerHTML = `<h2>${question.prompt}</h2><div class="option-list">${question.options.map((option, index) => `<label><input type="radio" name="answer" value="${index}"><span>${option}</span></label>`).join('')}</div>`;
   } else {
-    const table = question.table ? `<table class="data-table"><tr>${question.table.headings.map(value => `<th>${value}</th>`).join('')}</tr><tr>${question.table.values.map(value => `<td>${value}</td>`).join('')}</tr></table>` : '';
+    const tableRows = question.table?.rows || (question.table?.values ? [question.table.values] : []);
+    const table = question.table ? `<table class="data-table"><tr>${question.table.headings.map(value => `<th>${value}</th>`).join('')}</tr>${tableRows.map(row => `<tr>${row.map(value => `<td>${value}</td>`).join('')}</tr>`).join('')}</table>` : '';
     questionCard.innerHTML = `<h2>${question.prompt}</h2>${table}<label for="written-answer"><span class="sr-only">Your answer</span></label><textarea id="written-answer" placeholder="Write your answer here..."></textarea>`;
   }
 }

@@ -46,7 +46,28 @@ const flashcards = [
   ['nervous', 'Neurotransmitter', 'A chemical messenger released across a synapse.'],
   ['nervous', 'Reaction time', 'The time taken to respond to a stimulus.'],
   ['nervous', 'Cerebellum', 'The brain region that coordinates movement and balance.'],
-  ['nervous', 'Brain stem', 'Connects the brain to the spinal cord and controls automatic functions such as breathing.']
+  ['nervous', 'Brain stem', 'Connects the brain to the spinal cord and controls automatic functions such as breathing.'],
+  ['osmosis', 'Osmoregulation', 'The control of water and solute concentrations inside an organism.'],
+  ['osmosis', 'Osmosis', 'The net movement of water across a partially permeable membrane from higher water concentration to lower water concentration.'],
+  ['osmosis', 'Isotonic', 'Describes a solution with the same effective solute concentration as the cell, so there is no net water movement.'],
+  ['osmosis', 'Hypotonic', 'Describes a solution with a lower solute concentration than the cell, causing water to enter the cell.'],
+  ['osmosis', 'Hypertonic', 'Describes a solution with a higher solute concentration than the cell, causing water to leave the cell.'],
+  ['plants', 'Tropism', 'Directional plant growth in response to a stimulus.'],
+  ['plants', 'Auxin', 'A plant hormone that affects cell elongation and helps control growth responses.'],
+  ['plants', 'Phototropism', 'Directional growth in response to light.'],
+  ['plants', 'Gravitropism', 'Directional growth in response to gravity.'],
+  ['plants', 'Thigmotropism', 'Directional growth in response to touch.'],
+  ['plants', 'Photoperiod', 'The duration of daylight in a 24-hour cycle.'],
+  ['immunity', 'Pathogen', 'A microorganism or agent that can cause disease.'],
+  ['immunity', 'Antigen', 'A molecule recognised as foreign by the immune system.'],
+  ['immunity', 'Antibody', 'A protein made by B cells that binds to a specific antigen.'],
+  ['immunity', 'Phagocyte', 'A white blood cell that surrounds and digests pathogens.'],
+  ['immunity', 'Lymphocyte', 'A white blood cell involved in a specific immune response.'],
+  ['immunity', 'Memory cell', 'A long-lived immune cell that helps produce a faster response after later exposure to the same antigen.'],
+  ['immunity', 'Antibiotic', 'A medicine used to treat bacterial infections, not viral infections.'],
+  ['immunity', 'Antiviral', 'A medicine that reduces viral replication or interferes with a viral process.'],
+  ['immunity', 'Vaccine', 'A preparation that exposes the immune system to antigens safely and promotes immune memory.'],
+  ['immunity', 'Antibiotic resistance', 'The ability of bacteria to survive an antibiotic that previously killed or stopped them.']
 ];
 
 let filteredCards = [...flashcards];
@@ -198,6 +219,76 @@ const autoQuestions = [
     options: ['A neurotransmitter diffuses across the gap', 'The axons physically join together', 'Blood carries the electrical impulse', 'The myelin sheath enters the next neuron'],
     answer: 0,
     explain: 'The presynaptic cell releases a neurotransmitter that binds to receptors on the next cell.'
+  },
+  {
+    topic: 'Osmosis',
+    prompt: 'A cell is placed in an isotonic solution. What happens to its water balance?',
+    options: ['Water only enters the cell', 'Water only leaves the cell', 'There is no net movement of water', 'The membrane stops all water movement'],
+    answer: 2,
+    explain: 'Water moves in both directions, but there is no net movement because the effective concentrations are equal.'
+  },
+  {
+    topic: 'Osmosis',
+    prompt: 'What usually happens to an animal cell placed in a hypotonic solution?',
+    options: ['Water enters the cell', 'Water leaves the cell', 'Salt leaves but water cannot move', 'The cell becomes isotonic immediately'],
+    answer: 0,
+    explain: 'The solution has a lower solute concentration than the cell, so water enters by osmosis.'
+  },
+  {
+    topic: 'Osmoregulation',
+    prompt: 'Which adaptation helps a freshwater fish remove excess water?',
+    options: ['Drinking large amounts of seawater', 'Producing large amounts of dilute urine', 'Stopping all ion uptake at the gills', 'Producing very concentrated urine'],
+    answer: 1,
+    explain: 'Freshwater fish gain water by osmosis, so their kidneys release large amounts of dilute urine.'
+  },
+  {
+    topic: 'Plant responses',
+    prompt: 'Why does a young shoot bend towards light?',
+    options: ['Auxin causes greater cell elongation on the shaded side', 'Water moves out of every cell on the shaded side', 'Gravity stops cell division on the lit side', 'Antibodies accumulate on the shaded side'],
+    answer: 0,
+    explain: 'Auxin redistributes towards the shaded side, where greater elongation bends the shoot towards light.'
+  },
+  {
+    topic: 'Plant responses',
+    prompt: 'Which response is shown when a root grows downwards?',
+    options: ['Negative gravitropism', 'Positive gravitropism', 'Positive phototropism', 'Negative hydrotropism'],
+    answer: 1,
+    explain: 'The root grows in the direction of the gravitational stimulus, so the response is positive gravitropism.'
+  },
+  {
+    topic: 'Immunity',
+    prompt: 'Which statement about antibiotics is correct?',
+    options: ['They kill every type of virus', 'They treat bacterial infections', 'They create antibodies directly', 'They prevent every future infection'],
+    answer: 1,
+    explain: 'Antibiotics act against bacteria. They do not treat viral infections.'
+  },
+  {
+    topic: 'Immunity',
+    prompt: 'Why does an antibody bind to one particular antigen?',
+    options: ['Its binding site has a matching shape', 'It contains the same DNA as the pathogen', 'It is carried by a motor neuron', 'It dissolves every cell membrane'],
+    answer: 0,
+    explain: 'A specific antibody has a binding site with a shape that matches its antigen.'
+  },
+  {
+    topic: 'Immunity',
+    prompt: 'How can vaccination lead to a faster response after later infection?',
+    options: ['It produces memory cells', 'It removes all skin barriers', 'It prevents phagocytes from working', 'It turns viruses into bacteria'],
+    answer: 0,
+    explain: 'Memory cells formed after vaccination help the immune system respond faster to the same antigen later.'
+  },
+  {
+    topic: 'Immunity',
+    prompt: 'What is the main role of a phagocyte?',
+    options: ['Release insulin', 'Engulf and digest pathogens', 'Carry impulses to muscles', 'Make plant cells elongate'],
+    answer: 1,
+    explain: 'Phagocytes surround and digest pathogens as part of the non-specific immune response.'
+  },
+  {
+    topic: 'Antibiotic resistance',
+    prompt: 'How can antibiotic resistance become more common in a bacterial population?',
+    options: ['Resistant bacteria survive and reproduce', 'Every bacterium decides to become resistant', 'Antibiotics change bacteria into viruses', 'Vaccines remove bacterial variation'],
+    answer: 0,
+    explain: 'Antibiotics create selection pressure. Resistant bacteria survive and pass resistance to their descendants.'
   }
 ];
 
@@ -249,7 +340,7 @@ function shuffle(items) {
 }
 
 function startQuiz(mode) {
-  activeQuestions = mode === 'quick' ? shuffle(autoQuestions).slice(0, 8) : [...autoQuestions, ...writtenQuestions];
+  activeQuestions = mode === 'quick' ? shuffle(autoQuestions).slice(0, 8) : [...shuffle(autoQuestions).slice(0, 16), ...writtenQuestions];
   currentQuestion = 0;
   responses = [];
   timeLeft = (mode === 'quick' ? 15 : 55) * 60;

@@ -1,3 +1,8 @@
+const temporaryDeadline = new Date('2026-11-04T00:00:00+08:00').getTime();
+if (Date.now() >= temporaryDeadline) {
+  document.querySelectorAll('[data-temporary-nov3]').forEach(element => element.remove());
+}
+
 const views = [...document.querySelectorAll('.view')];
 const navButtons = [...document.querySelectorAll('.nav-button')];
 
@@ -9,6 +14,13 @@ function showView(id) {
 
 navButtons.forEach(button => button.addEventListener('click', () => showView(button.dataset.view)));
 document.querySelectorAll('[data-go]').forEach(button => button.addEventListener('click', () => showView(button.dataset.go)));
+document.querySelectorAll('[data-open-note]').forEach(button => button.addEventListener('click', () => {
+  const note = document.getElementById(button.dataset.openNote);
+  if (note) {
+    note.open = true;
+    requestAnimationFrame(() => note.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  }
+}));
 
 const flashcards = [
   ['feedback', 'Homeostasis', 'The maintenance of a stable internal environment within safe limits.'],

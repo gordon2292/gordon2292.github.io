@@ -1,8 +1,3 @@
-const temporaryDeadline = new Date('2026-11-04T00:00:00+08:00').getTime();
-if (Date.now() >= temporaryDeadline) {
-  document.querySelectorAll('[data-temporary-nov3]').forEach(element => element.remove());
-}
-
 const views = [...document.querySelectorAll('.view')];
 const navButtons = [...document.querySelectorAll('.nav-button')];
 

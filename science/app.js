@@ -3,7 +3,8 @@ const navButtons = [...document.querySelectorAll('.nav-button')];
 
 function showView(id) {
   views.forEach(view => view.classList.toggle('active', view.id === id));
-  navButtons.forEach(button => button.classList.toggle('active', button.dataset.view === id));
+  const navView = ['notes', 'flashcards', 'quiz'].includes(id) ? 'overview' : ['chem-notes', 'chem-cards', 'chem-quiz'].includes(id) ? 'chemistry' : id;
+  navButtons.forEach(button => button.classList.toggle('active', button.dataset.view === navView));
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -503,3 +504,224 @@ document.getElementById('quit-quiz').addEventListener('click', resetQuiz);
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && !quizShell.classList.contains('hidden')) resetQuiz();
 });
+
+const chemistryCards = [
+  ['pH', 'Indicator', 'A substance that changes colour depending on the acidity or alkalinity of a solution.'],
+  ['pH', 'Universal indicator', 'An indicator mixture that gives an approximate pH from a range of colours.'],
+  ['pH', 'pH meter', 'An instrument that gives a more precise numerical pH than an indicator.'],
+  ['Definitions', 'Arrhenius acid', 'A substance that produces H⁺ ions in water.'],
+  ['Definitions', 'Arrhenius base', 'A substance that produces OH⁻ ions in water.'],
+  ['Definitions', 'Brønsted–Lowry acid', 'A proton donor.'],
+  ['Definitions', 'Brønsted–Lowry base', 'A proton acceptor.'],
+  ['Definitions', 'Alkali', 'A base that dissolves in water.'],
+  ['Definitions', 'Strong acid', 'An acid that ionises almost completely in water.'],
+  ['Reactions', 'Neutralisation', 'A reaction in which an acid and a base form a salt and water.'],
+  ['Reactions', 'Salt', 'An ionic compound formed when the hydrogen ion of an acid is replaced by a positive ion.'],
+  ['Titration', 'Titre', 'The volume delivered from a burette during a titration.'],
+  ['Titration', 'Equivalence point', 'The point where reactants are present in the exact mole ratio from the equation.'],
+  ['Titration', 'Endpoint', 'The observed colour change used to stop a titration.'],
+  ['Solutions', 'Solute', 'A substance dissolved in a solvent.'],
+  ['Solutions', 'Solvent', 'The liquid that dissolves a solute.'],
+  ['Solutions', 'Precipitate', 'An insoluble solid produced when solutions react.'],
+  ['Solutions', 'Crystallisation', 'Producing crystals by concentrating a solution and allowing it to cool.']
+];
+
+let chemistryCardIndex = 0;
+let chemistryCardFlipped = false;
+const chemistryFlashcard = document.getElementById('chem-flashcard');
+
+function renderChemistryCard() {
+  const [topic, front, back] = chemistryCards[chemistryCardIndex];
+  document.getElementById('chem-card-topic').textContent = topic;
+  document.getElementById('chem-card-label').textContent = chemistryCardFlipped ? 'DEFINITION' : 'TERM';
+  document.getElementById('chem-card-front').textContent = front;
+  document.getElementById('chem-card-back').textContent = back;
+  document.getElementById('chem-card-count').textContent = `${chemistryCardIndex + 1} / ${chemistryCards.length}`;
+  chemistryFlashcard.classList.toggle('flipped', chemistryCardFlipped);
+}
+
+chemistryFlashcard.addEventListener('click', () => { chemistryCardFlipped = !chemistryCardFlipped; renderChemistryCard(); });
+document.getElementById('chem-prev-card').addEventListener('click', () => {
+  chemistryCardIndex = (chemistryCardIndex - 1 + chemistryCards.length) % chemistryCards.length;
+  chemistryCardFlipped = false;
+  renderChemistryCard();
+});
+document.getElementById('chem-next-card').addEventListener('click', () => {
+  chemistryCardIndex = (chemistryCardIndex + 1) % chemistryCards.length;
+  chemistryCardFlipped = false;
+  renderChemistryCard();
+});
+renderChemistryCard();
+
+const chemistryQuestions = [
+  {
+    topic: 'pH',
+    prompt: 'Which description fits a solution with pH 3?',
+    options: ['Acidic', 'Neutral', 'Alkaline', 'It must be pure water'],
+    answer: 0,
+    explain: 'A pH below 7 is acidic. A lower pH indicates greater acidity.'
+  },
+  {
+    topic: 'Indicators',
+    prompt: 'Why is universal indicator more useful than litmus for estimating pH?',
+    options: ['It gives a range of colours linked to pH', 'It always gives an exact decimal value', 'It reacts only with strong acids', 'It measures concentration directly'],
+    answer: 0,
+    explain: 'Universal indicator estimates pH from its colour. Litmus mainly distinguishes acids from alkalis.'
+  },
+  {
+    topic: 'Definitions',
+    prompt: 'What does an Arrhenius base produce in water?',
+    options: ['H⁺ ions', 'OH⁻ ions', 'CO₂ molecules', 'Hydrogen gas'],
+    answer: 1,
+    explain: 'In the Arrhenius model, a base produces hydroxide ions in aqueous solution.'
+  },
+  {
+    topic: 'Definitions',
+    prompt: 'Why is ammonia a Brønsted–Lowry base?',
+    options: ['It accepts a proton', 'It donates a proton', 'It contains a metal', 'It always contains OH⁻ in its formula'],
+    answer: 0,
+    explain: 'Ammonia accepts H⁺ to form NH₄⁺.'
+  },
+  {
+    topic: 'Salt names',
+    prompt: 'Which salt type forms from sulfuric acid?',
+    options: ['Chloride', 'Nitrate', 'Sulfate', 'Phosphate'],
+    answer: 2,
+    explain: 'Sulfuric acid forms sulfate salts.'
+  },
+  {
+    topic: 'Reactions',
+    prompt: 'What are the products of an acid reacting with a metal carbonate?',
+    options: ['Salt and hydrogen only', 'Salt, water and carbon dioxide', 'Salt and oxygen', 'Water and hydrogen only'],
+    answer: 1,
+    explain: 'An acid–carbonate reaction produces a salt, water and carbon dioxide.'
+  },
+  {
+    topic: 'Equations',
+    prompt: 'Which equation is balanced?',
+    options: ['HCl + Ca(OH)₂ → CaCl₂ + H₂O', '2HCl + Ca(OH)₂ → CaCl₂ + 2H₂O', 'HCl + Ca(OH)₂ → CaCl + 2H₂O', '2HCl + CaOH → CaCl₂ + H₂O'],
+    answer: 1,
+    explain: 'The coefficients 2:1:1:2 give equal numbers of every atom on both sides.'
+  },
+  {
+    topic: 'Titration',
+    prompt: 'What is the endpoint of a titration?',
+    options: ['The indicator colour change used to stop', 'The moment the burette is filled', 'The boiling point of the solution', 'The mass of dry salt'],
+    answer: 0,
+    explain: 'The endpoint is the observed physical change. The equivalence point describes the exact chemical ratio.'
+  },
+  {
+    topic: 'Titration',
+    prompt: 'Which apparatus transfers an accurate fixed volume into the conical flask?',
+    options: ['Volumetric pipette', 'Evaporating basin', 'Filter funnel', 'Test tube'],
+    answer: 0,
+    explain: 'A volumetric pipette delivers a fixed volume accurately.'
+  },
+  {
+    topic: 'Calculation',
+    prompt: '25.0 cm³ of 0.100 mol dm⁻³ HCl reacts 1:1 with 0.200 mol dm⁻³ NaOH. What NaOH volume is needed?',
+    options: ['6.25 cm³', '12.5 cm³', '25.0 cm³', '50.0 cm³'],
+    answer: 1,
+    explain: 'The acid contains 0.00250 mol. The same moles of 0.200 mol dm⁻³ NaOH occupy 0.0125 dm³, or 12.5 cm³.'
+  },
+  {
+    topic: 'Salt preparation',
+    prompt: 'Why is a salt-forming titration repeated without indicator?',
+    options: ['To avoid contaminating the salt crystals', 'To make the acid stronger', 'To produce carbon dioxide', 'To change the mole ratio'],
+    answer: 0,
+    explain: 'The first run finds the exact reacting volumes. Repeating without indicator keeps the product pure.'
+  },
+  {
+    topic: 'Salt preparation',
+    prompt: 'Which method prepares an insoluble salt from two soluble salt solutions?',
+    options: ['Precipitation', 'Simple distillation', 'Chromatography', 'Electrolysis'],
+    answer: 0,
+    explain: 'The solutions react to form an insoluble precipitate, which is filtered, washed and dried.'
+  },
+  {
+    topic: 'Salt preparation',
+    prompt: 'Why is excess insoluble base added to an acid?',
+    options: ['To make sure all acid reacts', 'To leave unreacted acid in the filtrate', 'To prevent salt formation', 'To measure pH exactly'],
+    answer: 0,
+    explain: 'Excess solid ensures complete neutralisation. The unreacted solid can then be removed by filtration.'
+  },
+  {
+    topic: 'Crystallisation',
+    prompt: 'Why should the salt solution not be heated completely dry?',
+    options: ['Cooling a concentrated solution allows crystals to form', 'The salt must remain a gas', 'Water is a catalyst', 'Drying changes a chloride into a nitrate'],
+    answer: 0,
+    explain: 'The solution is concentrated and then cooled so crystals form. Heating to dryness can damage some salts and gives poorer crystals.'
+  }
+];
+
+const chemistryQuizStart = document.getElementById('chem-quiz-start');
+const chemistryQuizShell = document.getElementById('chem-quiz-shell');
+const chemistryResults = document.getElementById('chem-results');
+const chemistryQuestionCard = document.getElementById('chem-question-card');
+const chemistryFeedback = document.getElementById('chem-feedback');
+const chemistryNextButton = document.getElementById('next-chem-question');
+let activeChemistryQuestions = [];
+let chemistryQuestionIndex = 0;
+let chemistryScore = 0;
+let chemistryChecked = false;
+
+function startChemistryQuiz() {
+  activeChemistryQuestions = shuffle(chemistryQuestions).slice(0, 10);
+  chemistryQuestionIndex = 0;
+  chemistryScore = 0;
+  chemistryQuizStart.classList.add('hidden');
+  chemistryResults.classList.add('hidden');
+  chemistryQuizShell.classList.remove('hidden');
+  renderChemistryQuestion();
+}
+
+function renderChemistryQuestion() {
+  const question = activeChemistryQuestions[chemistryQuestionIndex];
+  chemistryChecked = false;
+  document.getElementById('chem-question-number').textContent = `Question ${chemistryQuestionIndex + 1} of ${activeChemistryQuestions.length}`;
+  document.getElementById('chem-question-topic').textContent = question.topic;
+  document.getElementById('chem-progress-bar').style.width = `${(chemistryQuestionIndex / activeChemistryQuestions.length) * 100}%`;
+  chemistryQuestionCard.innerHTML = `<h2>${question.prompt}</h2><div class="option-list">${question.options.map((option, index) => `<label><input type="radio" name="chem-answer" value="${index}"><span>${option}</span></label>`).join('')}</div>`;
+  chemistryFeedback.className = 'chem-feedback hidden';
+  chemistryFeedback.textContent = '';
+  chemistryNextButton.textContent = 'Check answer';
+}
+
+function checkChemistryAnswer() {
+  const question = activeChemistryQuestions[chemistryQuestionIndex];
+  const selected = chemistryQuestionCard.querySelector('input:checked');
+  if (!selected) {
+    chemistryFeedback.className = 'chem-feedback incorrect';
+    chemistryFeedback.textContent = 'Choose an answer before checking.';
+    return;
+  }
+  chemistryChecked = true;
+  const isCorrect = Number(selected.value) === question.answer;
+  if (isCorrect) chemistryScore += 1;
+  chemistryQuestionCard.querySelectorAll('input').forEach(input => { input.disabled = true; });
+  chemistryFeedback.className = `chem-feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+  chemistryFeedback.innerHTML = `<strong>${isCorrect ? 'Correct.' : `Answer: ${question.options[question.answer]}`}</strong> ${question.explain}`;
+  chemistryNextButton.textContent = chemistryQuestionIndex === activeChemistryQuestions.length - 1 ? 'See results' : 'Next question';
+}
+
+function finishChemistryQuiz() {
+  chemistryQuizShell.classList.add('hidden');
+  chemistryResults.classList.remove('hidden');
+  chemistryResults.innerHTML = `<div class="score-circle"><strong>${chemistryScore}/${activeChemistryQuestions.length}</strong><span>score</span></div><h2>${chemistryScore >= 8 ? 'Strong recall' : 'Review and try again'}</h2><p>Use the chemistry notes to correct any uncertain definitions, equations or practical steps.</p><div class="quiz-actions"><button class="secondary-action" id="retry-chem-quiz">Try another set</button><button class="primary-action" id="review-chem-notes">Review chemistry notes</button></div>`;
+  document.getElementById('retry-chem-quiz').addEventListener('click', startChemistryQuiz);
+  document.getElementById('review-chem-notes').addEventListener('click', () => showView('chem-notes'));
+}
+
+function resetChemistryQuiz() {
+  chemistryQuizShell.classList.add('hidden');
+  chemistryResults.classList.add('hidden');
+  chemistryQuizStart.classList.remove('hidden');
+}
+
+document.getElementById('start-chem-quiz').addEventListener('click', startChemistryQuiz);
+chemistryNextButton.addEventListener('click', () => {
+  if (!chemistryChecked) checkChemistryAnswer();
+  else if (chemistryQuestionIndex === activeChemistryQuestions.length - 1) finishChemistryQuiz();
+  else { chemistryQuestionIndex += 1; renderChemistryQuestion(); }
+});
+document.getElementById('quit-chem-quiz').addEventListener('click', resetChemistryQuiz);

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Year 10 science revision notes and interactive quizzes organised by unit.">
   <title>Year 10 Science Revision Hub</title>
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -17,7 +17,8 @@
     </a>
     <nav aria-label="Main navigation">
       <button class="nav-button active" data-view="hub">Units</button>
-      <button class="nav-button" data-view="overview">Unit 1</button>
+      <button class="nav-button" data-view="overview">Biology</button>
+      <button class="nav-button" data-view="chemistry">Chemistry</button>
       <button class="nav-button" data-view="notes">Notes</button>
       <button class="nav-button" data-view="flashcards">Cards</button>
       <button class="nav-button" data-view="quiz">Quiz</button>
@@ -35,8 +36,8 @@
       </div>
       <div class="content-wrap unit-library">
         <div class="section-heading">
-          <p class="eyebrow">Current unit</p>
-          <h2>Unit 1 Biology</h2>
+          <p class="eyebrow">Current units</p>
+          <h2>Biology and Chemistry</h2>
         </div>
         <article class="unit-card biology-unit">
           <div class="unit-number">01</div>
@@ -49,15 +50,26 @@
           <div class="unit-status"><strong>Ready</strong><span>Notes and quizzes</span></div>
         </article>
 
+        <article class="unit-card chemistry-unit">
+          <div class="unit-number">02</div>
+          <div class="unit-copy">
+            <div class="unit-tags"><span>Chemistry</span><span>Acids and bases</span></div>
+            <h3>Make or Break</h3>
+            <p>Indicators, acid–base definitions, neutralisation, titration and salt preparation.</p>
+            <button class="primary-action" data-go="chemistry">Open Unit 2</button>
+          </div>
+          <div class="unit-status"><strong>Ready</strong><span>Notes, cards and quiz</span></div>
+        </article>
+
         <section class="future-units" aria-labelledby="future-title">
           <div>
             <p class="eyebrow">Future units</p>
             <h2 id="future-title">A separate space for every unit</h2>
-            <p>New units will appear as course material is added. Each unit will keep its own notes, vocabulary cards and practice questions.</p>
+            <p>Later units will appear as course material is added. Each unit will keep its own notes, vocabulary cards and practice questions.</p>
           </div>
           <div class="future-slot" aria-label="Future unit space">
-            <span>Next unit</span>
-            <strong>More science revision is coming</strong>
+            <span>Future unit</span>
+            <strong>The next topic will get its own section</strong>
           </div>
         </section>
       </div>
@@ -82,7 +94,6 @@
       </div>
 
       <div class="content-wrap">
-
         <section class="exam-strip" aria-labelledby="exam-load-title">
           <div>
             <p class="eyebrow">What an 80-minute cap suggests</p>
@@ -458,6 +469,233 @@
       </div>
     </section>
 
+    <section class="view" id="chemistry" aria-labelledby="chemistry-title">
+      <div class="hero chemistry-hero">
+        <div>
+          <p class="eyebrow">Unit 2 Chemistry · Acids, bases and salts</p>
+          <h1 id="chemistry-title">Make or Break</h1>
+          <p class="hero-copy">Particle interactions explain pH, neutralisation, titration and the preparation of salts.</p>
+          <div class="hero-actions">
+            <button class="primary-action" data-go="chem-notes">Start the chemistry notes</button>
+            <button class="secondary-action" data-go="chem-quiz">Test yourself</button>
+          </div>
+        </div>
+        <div class="chem-visual" aria-label="Acid and base pH scale">
+          <span class="acid-side">acid</span>
+          <strong>7</strong>
+          <span class="base-side">alkali</span>
+          <small>pH scale</small>
+        </div>
+      </div>
+
+      <div class="content-wrap">
+        <section class="inquiry-panel" aria-labelledby="chem-inquiry-title">
+          <p class="eyebrow">Statement of inquiry</p>
+          <h2 id="chem-inquiry-title">How do particle interactions shape relationships between substances?</h2>
+          <p>Use ions and particle ratios to explain observations, equations and practical results.</p>
+        </section>
+
+        <section class="chem-priority" aria-labelledby="chem-outcomes-title">
+          <div class="section-heading wide">
+            <p class="eyebrow">Learning outcomes</p>
+            <h2 id="chem-outcomes-title">What this unit expects you to do</h2>
+          </div>
+          <article><span>pH</span><h3>Classify solutions</h3><p>Use indicators and the pH scale to identify acidic, neutral and alkaline solutions.</p></article>
+          <article><span>ions</span><h3>Define acids and bases</h3><p>Apply Arrhenius and Brønsted–Lowry definitions to familiar reactions.</p></article>
+          <article><span>equations</span><h3>Predict products</h3><p>Name salts and balance equations involving acids, bases, carbonates and ammonia.</p></article>
+          <article><span>practical</span><h3>Prepare salts</h3><p>Select and explain a suitable method for a pure, dry soluble or insoluble salt.</p></article>
+        </section>
+
+        <section class="unit-tool-row" aria-label="Chemistry revision tools">
+          <button data-go="chem-notes"><strong>Revision notes</strong><span>Five connected topics</span></button>
+          <button data-go="chem-cards"><strong>Vocabulary cards</strong><span>Active recall practice</span></button>
+          <button data-go="chem-quiz"><strong>Interactive quiz</strong><span>Auto-marked questions</span></button>
+        </section>
+      </div>
+    </section>
+
+    <section class="view" id="chem-notes" aria-labelledby="chem-notes-title">
+      <div class="page-hero compact chemistry-page-hero">
+        <p class="eyebrow">Unit 2 Chemistry · Revision notes</p>
+        <h1 id="chem-notes-title">Acids, bases and salts</h1>
+        <p>Open a topic, cover the explanation and reconstruct it from memory.</p>
+      </div>
+      <div class="content-wrap notes-layout">
+        <aside class="topic-index chemistry-index" aria-label="Chemistry topic index">
+          <a href="#chem-ph-note">pH and indicators</a>
+          <a href="#chem-definitions-note">Acids and bases</a>
+          <a href="#chem-reactions-note">Reactions and salts</a>
+          <a href="#chem-titration-note">Titration</a>
+          <a href="#chem-preparation-note">Preparing salts</a>
+          <button class="index-tool" data-go="chem-cards">Open vocabulary cards</button>
+          <button class="index-tool" data-go="chem-quiz">Open chemistry quiz</button>
+        </aside>
+
+        <div class="note-stack">
+          <details class="note-card chemistry-note" id="chem-ph-note" open>
+            <summary><span>01</span><div><h2>pH and indicators</h2><p>Classifying aqueous solutions</p></div></summary>
+            <div class="note-body">
+              <div class="ph-scale" aria-label="pH scale from zero to fourteen">
+                <div class="ph-acid"><strong>0–6</strong><span>acidic</span></div>
+                <div class="ph-neutral"><strong>7</strong><span>neutral</span></div>
+                <div class="ph-base"><strong>8–14</strong><span>alkaline</span></div>
+              </div>
+              <p>The pH scale measures how acidic or alkaline an aqueous solution is. A lower pH means a more acidic solution. A higher pH means a more alkaline solution.</p>
+              <div class="definition-list chemistry-definitions">
+                <div><dt>Litmus</dt><dd>Blue litmus turns red in acid. Red litmus turns blue in alkali. Litmus does not show the strength or exact pH.</dd></div>
+                <div><dt>Universal indicator</dt><dd>Shows a range of colours across the pH scale, so it gives an approximate pH.</dd></div>
+                <div><dt>Phenolphthalein</dt><dd>Colourless in acidic and neutral solutions, and pink in alkaline solutions.</dd></div>
+                <div><dt>Methyl orange</dt><dd>Red in acid and yellow in alkali, with orange in its transition range.</dd></div>
+              </div>
+              <div class="exam-box"><strong>Measurement limit</strong><p>An indicator estimates a range. A calibrated pH meter gives a more precise numerical value.</p></div>
+            </div>
+          </details>
+
+          <details class="note-card chemistry-note" id="chem-definitions-note">
+            <summary><span>02</span><div><h2>Acids, bases and alkalis</h2><p>Two definitions and their ions</p></div></summary>
+            <div class="note-body">
+              <div class="compare-two">
+                <section><h3>Arrhenius definition</h3><p>An acid produces H<sup>+</sup> ions in water. A base produces OH<sup>−</sup> ions in water.</p></section>
+                <section><h3>Brønsted–Lowry definition</h3><p>An acid donates a proton, H<sup>+</sup>. A base accepts a proton.</p></section>
+              </div>
+              <p>An <strong>alkali</strong> is a base that dissolves in water. Metal oxides, metal hydroxides and metal carbonates can act as bases. Ammonia is a base because it accepts a proton even though its formula contains no OH<sup>−</sup>.</p>
+              <h3>Strong and weak are about ionisation</h3>
+              <p>A strong acid ionises almost completely in water. A weak acid ionises only partly. Strength is different from concentration: concentration describes the amount of solute per volume of solution.</p>
+              <blockquote>
+                <p>NH<sub>3</sub> + H<sub>2</sub>O ⇌ NH<sub>4</sub><sup>+</sup> + OH<sup>−</sup></p>
+                <p>Water donates H<sup>+</sup>, so it acts as the acid. Ammonia accepts H<sup>+</sup>, so it acts as the base.</p>
+              </blockquote>
+            </div>
+          </details>
+
+          <details class="note-card chemistry-note" id="chem-reactions-note">
+            <summary><span>03</span><div><h2>Neutralisation and salt equations</h2><p>Products, names and coefficients</p></div></summary>
+            <div class="note-body">
+              <div class="reaction-patterns">
+                <section><strong>acid + base</strong><span>salt + water</span></section>
+                <section><strong>acid + carbonate</strong><span>salt + water + carbon dioxide</span></section>
+                <section><strong>acid + ammonia</strong><span>ammonium salt</span></section>
+                <section><strong>acid + reactive metal</strong><span>salt + hydrogen in the usual dilute-acid model</span></section>
+              </div>
+              <h3>Salt names come from the acid</h3>
+              <div class="salt-table" role="table" aria-label="Acid and salt names">
+                <div role="row"><strong role="cell">Hydrochloric acid</strong><span role="cell">chloride</span></div>
+                <div role="row"><strong role="cell">Sulfuric acid</strong><span role="cell">sulfate</span></div>
+                <div role="row"><strong role="cell">Nitric acid</strong><span role="cell">nitrate</span></div>
+                <div role="row"><strong role="cell">Phosphoric acid</strong><span role="cell">phosphate</span></div>
+              </div>
+              <h3>Balanced examples</h3>
+              <div class="equation-list">
+                <p>HCl + NaOH → NaCl + H<sub>2</sub>O</p>
+                <p>2HCl + Ca(OH)<sub>2</sub> → CaCl<sub>2</sub> + 2H<sub>2</sub>O</p>
+                <p>2HCl + CaCO<sub>3</sub> → CaCl<sub>2</sub> + H<sub>2</sub>O + CO<sub>2</sub></p>
+                <p>2NH<sub>3</sub> + H<sub>2</sub>SO<sub>4</sub> → (NH<sub>4</sub>)<sub>2</sub>SO<sub>4</sub></p>
+              </div>
+              <div class="exam-box"><strong>Balancing rule</strong><p>Change coefficients in front of formulas. Never change a subscript inside a correct chemical formula.</p></div>
+            </div>
+          </details>
+
+          <details class="note-card chemistry-note" id="chem-titration-note">
+            <summary><span>04</span><div><h2>Titration</h2><p>Endpoint, equivalence and calculations</p></div></summary>
+            <div class="note-body">
+              <p>A titration measures the volume of one solution needed to react exactly with a measured volume of another solution.</p>
+              <ol class="process-list">
+                <li>Use a volumetric pipette to transfer a known volume, such as 25.0 cm<sup>3</sup>, into a conical flask.</li>
+                <li>Add a few drops of a suitable indicator. Fill the burette with the other solution and record the initial reading.</li>
+                <li>Add solution from the burette while swirling. Near the endpoint, add it drop by drop until the colour change persists.</li>
+                <li>Record the final reading and calculate the titre. Repeat until concordant titres are obtained.</li>
+              </ol>
+              <div class="compare-two">
+                <section><h3>Equivalence point</h3><p>The reactants are present in the exact mole ratio shown by the balanced equation.</p></section>
+                <section><h3>Endpoint</h3><p>The observed indicator colour change used to stop the titration.</p></section>
+              </div>
+              <h3>Mole-ratio method</h3>
+              <div class="formula-box">
+                <p><strong>Step 1:</strong> calculate moles using <em>n = cV</em>, with volume in dm<sup>3</sup>.</p>
+                <p><strong>Step 2:</strong> use the coefficients in the balanced equation.</p>
+                <p><strong>Step 3:</strong> calculate the unknown concentration or volume.</p>
+                <p><strong>Step 4:</strong> convert the final volume to the unit requested and check that the value is reasonable.</p>
+              </div>
+              <div class="worked-example">
+                <h3>Worked example</h3>
+                <p>25.0 cm<sup>3</sup> of 0.100 mol dm<sup>−3</sup> HCl reacts with 0.200 mol dm<sup>−3</sup> NaOH. The equation has a 1:1 ratio.</p>
+                <p>n(HCl) = 0.100 × 0.0250 = 0.00250 mol</p>
+                <p>V(NaOH) = 0.00250 ÷ 0.200 = 0.0125 dm<sup>3</sup> = <strong>12.5 cm<sup>3</sup></strong></p>
+              </div>
+              <div class="exam-box"><strong>Ratio check</strong><p>Read the coefficient order carefully. For 2HCl + Ca(OH)<sub>2</sub>, two moles of HCl react with one mole of calcium hydroxide.</p></div>
+            </div>
+          </details>
+
+          <details class="note-card chemistry-note" id="chem-preparation-note">
+            <summary><span>05</span><div><h2>Preparing pure, dry salts</h2><p>Choose the method from solubility</p></div></summary>
+            <div class="note-body">
+              <div class="method-grid">
+                <section><span>Soluble acid + soluble alkali</span><h3>Titration</h3><p>Find the exact reacting volumes with an indicator. Repeat using the same volumes without indicator, then concentrate, cool, crystallise, filter and dry.</p></section>
+                <section><span>Soluble acid + insoluble solid</span><h3>Excess solid method</h3><p>Warm the acid, add excess base or carbonate until no more reacts, filter off the excess, then crystallise the filtrate.</p></section>
+                <section><span>Two soluble salt solutions</span><h3>Precipitation</h3><p>Mix the solutions to form an insoluble salt. Filter the precipitate, wash it with distilled water and dry it.</p></section>
+                <section><span>Pure crystals</span><h3>Crystallisation</h3><p>Concentrate the solution without heating it completely dry. Cool it, then filter and dry the crystals.</p></section>
+              </div>
+              <div class="decision-path">
+                <p><strong>Need a sodium, potassium or ammonium salt?</strong> Use titration because their bases and salts are soluble.</p>
+                <p><strong>Need another soluble salt?</strong> Use an acid with an excess insoluble solid, then filter.</p>
+                <p><strong>Need an insoluble salt?</strong> Use precipitation from two soluble reactants.</p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="chem-cards" aria-labelledby="chem-cards-title">
+      <div class="page-hero compact chemistry-page-hero">
+        <p class="eyebrow">Unit 2 Chemistry · Active recall</p>
+        <h1 id="chem-cards-title">Chemistry vocabulary cards</h1>
+        <p>Say the definition or rule before flipping the card.</p>
+      </div>
+      <div class="content-wrap">
+        <div class="flashcard-stage">
+          <button class="flashcard chemistry-flashcard" id="chem-flashcard" aria-live="polite" aria-label="Flip chemistry flashcard">
+            <span class="card-topic" id="chem-card-topic">Chemistry</span>
+            <span class="card-label" id="chem-card-label">TERM</span>
+            <strong id="chem-card-front">Acid</strong>
+            <span id="chem-card-back">A proton donor; in the Arrhenius model it produces H⁺ ions in water.</span>
+            <small>Click to flip</small>
+          </button>
+          <div class="flashcard-nav">
+            <button id="chem-prev-card" aria-label="Previous chemistry card">Previous</button>
+            <span id="chem-card-count">1 / 1</span>
+            <button id="chem-next-card" aria-label="Next chemistry card">Next</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="chem-quiz" aria-labelledby="chem-quiz-title">
+      <div class="page-hero compact chemistry-page-hero">
+        <p class="eyebrow">Unit 2 Chemistry · Interactive practice</p>
+        <h1 id="chem-quiz-title">Acids and bases quiz</h1>
+        <p>Ten auto-marked questions covering definitions, equations and practical work.</p>
+      </div>
+      <div class="content-wrap">
+        <div class="chem-quiz-start" id="chem-quiz-start">
+          <h2>Ready to begin?</h2>
+          <p>The questions are shuffled each time. Explain each answer aloud before moving on.</p>
+          <button class="primary-action" id="start-chem-quiz">Start chemistry quiz</button>
+        </div>
+        <div class="quiz-shell hidden" id="chem-quiz-shell">
+          <div class="quiz-progress"><div id="chem-progress-bar"></div></div>
+          <div class="question-meta"><span id="chem-question-number">Question 1</span><span id="chem-question-topic">pH</span></div>
+          <article class="question-card" id="chem-question-card"></article>
+          <div class="chem-feedback hidden" id="chem-feedback" aria-live="polite"></div>
+          <div class="quiz-actions">
+            <button class="secondary-action" id="quit-chem-quiz">End quiz</button>
+            <button class="primary-action" id="next-chem-question">Check answer</button>
+          </div>
+        </div>
+        <div class="results hidden" id="chem-results" aria-live="polite"></div>
+      </div>
+    </section>
+
     <section class="view" id="criteria" aria-labelledby="criteria-title">
       <div class="page-hero compact criteria-hero">
         <p class="eyebrow">Year 10 Science · Complete assessment reference</p>
@@ -579,6 +817,6 @@
     <button class="footer-link" data-go="resources">Browse resources</button>
   </footer>
 
-  <script src="app.js?v=7"></script>
+  <script src="app.js?v=8"></script>
 </body>
 </html>

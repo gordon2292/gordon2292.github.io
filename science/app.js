@@ -506,6 +506,11 @@ document.addEventListener('keydown', event => {
 });
 
 const chemistryCards = [
+  ['Atomic structure', 'Atomic number', 'The number of protons in an atom’s nucleus.'],
+  ['Atomic structure', 'Mass number', 'The total number of protons and neutrons in an atom’s nucleus.'],
+  ['Atomic structure', 'Neutrons', 'Mass number minus atomic number.'],
+  ['Equations', 'Coefficient', 'A number before a chemical formula that multiplies the whole formula.'],
+  ['Equations', 'Balanced equation', 'An equation with the same number of each type of atom on both sides.'],
   ['pH', 'Indicator', 'A substance that changes colour depending on the acidity or alkalinity of a solution.'],
   ['pH', 'Universal indicator', 'An indicator mixture that gives an approximate pH from a range of colours.'],
   ['pH', 'pH meter', 'An instrument that gives a more precise numerical pH than an indicator.'],
@@ -554,6 +559,34 @@ document.getElementById('chem-next-card').addEventListener('click', () => {
 renderChemistryCard();
 
 const chemistryQuestions = [
+  {
+    topic: 'Atomic structure',
+    prompt: 'A neutral calcium-40 atom has atomic number 20. How many neutrons does it have?',
+    options: ['20', '40', '60', '10'],
+    answer: 0,
+    explain: 'Neutrons = mass number − atomic number = 40 − 20 = 20.'
+  },
+  {
+    topic: 'Balancing',
+    prompt: 'Which coefficients balance N₂ + H₂ → NH₃?',
+    options: ['1, 3, 2', '1, 2, 3', '2, 3, 1', '1, 1, 2'],
+    answer: 0,
+    explain: 'N₂ + 3H₂ → 2NH₃ gives two nitrogen atoms and six hydrogen atoms on each side.'
+  },
+  {
+    topic: 'Titration ratios',
+    prompt: '10.0 cm³ of 0.100 mol dm⁻³ H₂SO₄ reacts with 0.100 mol dm⁻³ NaOH. What volume of NaOH is required?',
+    options: ['5.0 cm³', '10.0 cm³', '20.0 cm³', '40.0 cm³'],
+    answer: 2,
+    explain: 'H₂SO₄ + 2NaOH has a 1:2 mole ratio. At equal concentrations, NaOH needs twice the volume.'
+  },
+  {
+    topic: 'Salt preparation',
+    prompt: 'How would you make insoluble silver bromide from silver nitrate and sodium bromide solutions?',
+    options: ['Mix, filter, wash and dry the precipitate', 'Use a titration and evaporate all water', 'Add excess copper oxide', 'Distil the solutions'],
+    answer: 0,
+    explain: 'The two soluble solutions form insoluble silver bromide. Filter, wash and dry the solid.'
+  },
   {
     topic: 'pH',
     prompt: 'Which description fits a solution with pH 3?',

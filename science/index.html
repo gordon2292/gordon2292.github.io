@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Year 10 science revision notes and interactive quizzes organised by unit.">
   <title>Year 10 Science Revision Hub</title>
-  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -507,7 +507,7 @@
         </section>
 
         <section class="unit-tool-row" aria-label="Chemistry revision tools">
-          <button data-go="chem-notes"><strong>Revision notes</strong><span>Five connected topics</span></button>
+          <button data-go="chem-notes"><strong>Revision notes</strong><span>Includes booklet practice</span></button>
           <button data-go="chem-cards"><strong>Vocabulary cards</strong><span>Active recall practice</span></button>
           <button data-go="chem-quiz"><strong>Interactive quiz</strong><span>Auto-marked questions</span></button>
         </section>
@@ -527,6 +527,8 @@
           <a href="#chem-reactions-note">Reactions and salts</a>
           <a href="#chem-titration-note">Titration</a>
           <a href="#chem-preparation-note">Preparing salts</a>
+          <a href="#chem-prior-note">Atomic structure</a>
+          <a href="#chem-booklet-note">Booklet practice</a>
           <button class="index-tool" data-go="chem-cards">Open vocabulary cards</button>
           <button class="index-tool" data-go="chem-quiz">Open chemistry quiz</button>
         </aside>
@@ -640,6 +642,32 @@
                 <p><strong>Need another soluble salt?</strong> Use an acid with an excess insoluble solid, then filter.</p>
                 <p><strong>Need an insoluble salt?</strong> Use precipitation from two soluble reactants.</p>
               </div>
+            </div>
+          </details>
+          <details class="note-card chemistry-note" id="chem-prior-note">
+            <summary><span>06</span><div><h2>Atomic structure and equations</h2><p>Prior knowledge from the answer booklet</p></div></summary>
+            <div class="note-body">
+              <p>The atomic number is the number of protons. The mass number is protons plus neutrons. A neutral atom has the same number of electrons as protons, so <strong>neutrons = mass number − atomic number</strong>.</p>
+              <div class="compare-two">
+                <section><h3>Calcium-40</h3><p>Atomic number 20: 20 protons, 20 neutrons and 20 electrons in a neutral atom.</p></section>
+                <section><h3>Periodic table</h3><p>Elements in a group share the same number of outer-shell electrons. The period number gives the number of occupied electron shells.</p></section>
+              </div>
+              <h3>Balance by counting atoms</h3>
+              <p>N<sub>2</sub> + 3H<sub>2</sub> → 2NH<sub>3</sub> has two nitrogen atoms and six hydrogen atoms on each side. Change only the numbers in front of formulas. Count every element again after each change.</p>
+              <p>Reaction patterns in the booklet include combination, decomposition and double displacement. For example, two compounds can exchange ions: 2KCl + Mg(NO<sub>3</sub>)<sub>2</sub> → 2KNO<sub>3</sub> + MgCl<sub>2</sub>.</p>
+            </div>
+          </details>
+          <details class="note-card chemistry-note" id="chem-booklet-note">
+            <summary><span>07</span><div><h2>Answer booklet practice</h2><p>Apply ratios, graphs and preparation methods</p></div></summary>
+            <div class="note-body">
+              <h3>Titration ratios</h3>
+              <p>Read coefficients from the balanced equation before using concentration × volume. For 10.0 cm<sup>3</sup> of 0.100 mol dm<sup>−3</sup> H<sub>2</sub>SO<sub>4</sub>, the acid contains 0.00100 mol. H<sub>2</sub>SO<sub>4</sub> + 2NaOH → Na<sub>2</sub>SO<sub>4</sub> + 2H<sub>2</sub>O, so 0.00200 mol of NaOH is needed. At 0.100 mol dm<sup>−3</sup>, that is <strong>20.0 cm<sup>3</sup></strong>.</p>
+              <p>For 10.0 cm<sup>3</sup> of 0.100 mol dm<sup>−3</sup> HCl, 0.100 mol dm<sup>−3</sup> Ca(OH)<sub>2</sub> needs <strong>5.0 cm<sup>3</sup></strong> because 2HCl reacts with 1Ca(OH)<sub>2</sub>.</p>
+              <h3>Read titration curves</h3>
+              <p>Find the steep change and read its volume from the x-axis. Compare reacting moles, then use the equation to infer the ratio. A graph without visible values cannot give a reliable numerical answer.</p>
+              <h3>Choose a salt method</h3>
+              <p>Copper(II) sulfate from copper(II) oxide uses excess insoluble solid, filtration and crystallisation. Potassium chloride from potassium hydroxide uses titration. Silver bromide from silver nitrate and sodium bromide uses precipitation, followed by filtering and washing.</p>
+              <div class="exam-box"><strong>Check the evidence</strong><p>Equal volumes of two solutions do not guarantee pH 7: concentration and reaction ratio matter. The booklet leaves some graph readings as placeholders, so read the actual graph rather than memorising an estimated number.</p></div>
             </div>
           </details>
         </div>
@@ -802,6 +830,12 @@
             <p>Vocabulary practice for neurons, reflex arcs, synapses and reaction time.</p>
             <a class="resource-link" href="https://quizlet.com/hk/819941720/nervous-system-and-reflexes-flash-cards/" target="_blank" rel="noreferrer">Open Quizlet <span aria-hidden="true">↗</span></a>
           </article>
+          <article class="resource-card">
+            <div class="resource-meta"><span>Unit 2 Chemistry</span><span>PhET simulation</span></div>
+            <h2>Balancing chemical equations</h2>
+            <p>Practise changing coefficients and checking that atom counts match on both sides.</p>
+            <a class="resource-link" href="https://phet.colorado.edu/sims/html/balancing-chemical-equations/latest/balancing-chemical-equations_all.html" target="_blank" rel="noopener noreferrer">Open simulation <span aria-hidden="true">↗</span></a>
+          </article>
           <article class="resource-card empty-resource">
             <div class="resource-meta"><span>Future units</span><span>Links</span></div>
             <h2>More resources</h2>
@@ -817,6 +851,6 @@
     <button class="footer-link" data-go="resources">Browse resources</button>
   </footer>
 
-  <script src="app.js?v=8"></script>
+  <script src="app.js?v=10"></script>
 </body>
 </html>

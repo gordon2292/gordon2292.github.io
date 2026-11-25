@@ -506,6 +506,9 @@ document.addEventListener('keydown', event => {
 });
 
 const chemistryCards = [
+  ['Moles', 'Avogadro’s constant', '6.02 × 10²³ particles per mole.'],
+  ['Moles', 'Number of particles', 'Moles × Avogadro’s constant.'],
+  ['Moles', 'Mass from moles', 'Mass in g = moles × molar mass in g mol⁻¹.'],
   ['Atomic structure', 'Atomic number', 'The number of protons in an atom’s nucleus.'],
   ['Atomic structure', 'Mass number', 'The total number of protons and neutrons in an atom’s nucleus.'],
   ['Atomic structure', 'Neutrons', 'Mass number minus atomic number.'],
@@ -559,6 +562,20 @@ document.getElementById('chem-next-card').addEventListener('click', () => {
 renderChemistryCard();
 
 const chemistryQuestions = [
+  {
+    topic: 'Moles',
+    prompt: 'How many molecules are in 0.50 mol of a molecular substance?',
+    options: ['3.01 × 10²³', '6.02 × 10²³', '1.20 × 10²⁴', '0.50 × 10²³'],
+    answer: 0,
+    explain: 'Number of molecules = 0.50 × 6.02 × 10²³ = 3.01 × 10²³.'
+  },
+  {
+    topic: 'Moles',
+    prompt: 'What is the mass of 0.20 mol of water if its molar mass is 18 g mol⁻¹?',
+    options: ['0.011 g', '3.6 g', '18.2 g', '90 g'],
+    answer: 1,
+    explain: 'Mass = moles × molar mass = 0.20 × 18 = 3.6 g.'
+  },
   {
     topic: 'Atomic structure',
     prompt: 'A neutral calcium-40 atom has atomic number 20. How many neutrons does it have?',
